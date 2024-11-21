@@ -2,7 +2,7 @@ import { Text, View } from "react-native";
 import "../global.css";
 import Worker from "./component/worker_index";
 import Footer from "./component/menu_toggle";
-// import Drawer from "./component/side_menu";
+import Drawer from "./component/drawer";
 
 export default function Index() {
   return (
