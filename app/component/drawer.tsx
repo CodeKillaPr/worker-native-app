@@ -23,6 +23,7 @@ export default function Drawer() {
   const walletAnim = useRef(new Animated.Value(1)).current;
   const settingsAnim = useRef(new Animated.Value(1)).current;
   const aboutAnim = useRef(new Animated.Value(1)).current;
+  const jobsHistoryAnim = useRef(new Animated.Value(1)).current;
 
   // Función para abrir/cerrar el menú
   const toggleMenu = () => {
@@ -71,8 +72,8 @@ export default function Drawer() {
   };
 
   return (
-    <View className="flex-1 ">
-      <View className="top-[5rem] p-4">
+    <View className="flex-1">
+      <View className="top-[5rem] p-4 w-1 h-1">
         <Pressable onPress={toggleMenu}>
           <View className="group justify-center items-center p-2 bg-blue-500/70 w-[4rem] h-[4rem] rounded-[5rem] border border-blue-400">
             <Svg
@@ -111,9 +112,9 @@ export default function Drawer() {
               source={{
                 uri: "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671122.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1726358400&semt=ais_hybrid",
               }}
-              className="w-[100] h-[100] rounded-full top-[-5rem] right-[-7rem] border border-white"
+              className="w-[100] h-[100] rounded-full top-[-2rem] right-[-7rem] border border-white"
             />
-            <Text className="text-white font-bold top-[-4rem] right-[-5rem] text-xl">
+            <Text className="text-white font-bold top-[-1rem] right-[-5rem] text-xl">
               Nelson Betancourt
             </Text>
           </View>
@@ -124,6 +125,15 @@ export default function Drawer() {
           >
             <Animated.View style={{ transform: [{ scale: profileAnim }] }}>
               <Text className="text-white text-5xl py-10">Profile</Text>
+            </Animated.View>
+          </Pressable>
+
+          <Pressable
+            onPressIn={() => animateTextIn(jobsHistoryAnim)}
+            onPressOut={() => animateTextOut(jobsHistoryAnim)}
+          >
+            <Animated.View style={{ transform: [{ scale: jobsHistoryAnim }] }}>
+              <Text className="text-white text-5xl py-10">Jobs History</Text>
             </Animated.View>
           </Pressable>
 
